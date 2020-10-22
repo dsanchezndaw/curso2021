@@ -22,8 +22,8 @@ if (isset($_SESSION["usuario"]) or isset($_SESSION["contraseña"])){
     <title>Document</title>
 </head>
 <body>
-    <form action="sessions2.php" metodh="post">
-        <input type="enviar" value="salir">
+    <form action="sessions2.php" method="post">
+        <input type="submit" value="salir">
     </form>
 </body>
 </html>
