@@ -1,16 +1,6 @@
 <?php
 
 session_start();
-if ($_SERVER["REQUEST_METHOD"]=="POST"){
-    session_destroy();
-}
-if (isset($_SESSION["usuario"]) or isset($_SESSION["contraseña"])){
-    echo $_SESSION["usuario"];
-    echo $_SESSION["contraseña"];
-}else{
-    header("Location: http://dawjavi.insjoaquimmir.cat/dsanchez/M07/sessions/sessions.php");
-}
-
 
 ?>
 
@@ -24,6 +14,8 @@ if (isset($_SESSION["usuario"]) or isset($_SESSION["contraseña"])){
 <body>
     <form action="sessions2.php" method="post">
         <input type="submit" value="salir">
+        Nombre: <input type="text" name="nombre"></br>
+        Contraseña: <input type="password" name="contrasena">
     </form>
 </body>
 </html>

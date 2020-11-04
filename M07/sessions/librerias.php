@@ -1,15 +1,15 @@
 <?php   
 
-function correo($comprovaremail){
-    if (filter_var($comprovaremail, FILTER_VALIDATE_EMAIL)){
+function correo($nombre){
+    if (filter_var($nombre, FILTER_VALIDATE_EMAIL)){
         return false;
     }else{
         return true;
     }
 }
 
-function contraseña($comprovarcontraseña){
-    if(preg_match("/^[a-zA-Z]+$/", $comprovarcontraseña)){
+function contraseña($contrasena){
+    if(preg_match("/^[a-zA-Z]+$/", $contrasena)){
         return true;
     }else{
         return false;
