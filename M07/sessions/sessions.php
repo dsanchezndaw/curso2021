@@ -1,5 +1,6 @@
-<?php
 
+<?php
+/*
 session_start();
 include "librerias.php";
 $fallonombre="";
@@ -49,11 +50,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if ($_COOKIE["user"] == sha1(md5("danielsanchez@gmail.com")) && $_COOKIE["contraseña"] == sha1(md5("abc1234"))){
     header("Location: ./sessions2.php");
 }
+*/
 
 
 
-
-
+/*
 
 ?>
     <!DOCTYPE html>
@@ -74,3 +75,4 @@ if ($_COOKIE["user"] == sha1(md5("danielsanchez@gmail.com")) && $_COOKIE["contra
     </body>
     </html>
 
+*/
