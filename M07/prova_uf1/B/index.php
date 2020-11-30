@@ -1,12 +1,12 @@
 <?php
     session_start();
-
+    //Conexió a la base de dates.
     $conn = mysqli_connect('localhost', 'dsanchez', 'dsanchez', 'dsanchez_db_prova');
 
     if (!$conn) {
         die("Connection failed: " . $mysqli_connect_error);
     }
-
+    
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $_SESSION["usuari"]=$_POST["username"];
         $_SESSION["contrasenya"]=$_POST["password"];
