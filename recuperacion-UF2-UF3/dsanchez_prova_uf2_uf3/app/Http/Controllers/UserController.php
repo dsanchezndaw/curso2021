@@ -41,7 +41,7 @@ class UserController extends Controller
 
     }
 
-    public function send()
+    public function send(Request $request)
     {
         // ...
         // message is being sent
@@ -49,8 +49,8 @@ class UserController extends Controller
         
         $message = new Message;
         $message->setAttribute('from', Auth::user()->id);
-        $message->setAttribute('to', 16);
-        $message->setAttribute('message', 'Demo message from user 1 to user 2');
+        $message->setAttribute('to', $request->input("to"));
+        $message->setAttribute('message', $request->input("message"));
         $message->save();
          
         // want to broadcast NewMessageNotification event

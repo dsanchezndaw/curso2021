@@ -26,7 +26,7 @@ Route::get('edicio/{id}',[UserController::class,'edit'])->middleware(['auth'])->
 Route::post('update/{id}',[UserController::class,'update'])->middleware(['auth'])->name('update');
 
 Route::get('admin/{id}',[UserController::class,'index'])->middleware(['auth'])->name('admin');
-Route::get('admin/{id}/send/',[UserController::class,'send'])->middleware(['auth'])->name('adminsend');
+Route::post('admin/{id}/send',[UserController::class,'send'])->middleware(['auth'])->name('adminsend');
 
 
 

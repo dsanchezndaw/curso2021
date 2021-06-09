@@ -15,10 +15,10 @@
 </head>
 
 <body>
-
-    <input type="number" name="num1" class="num1"> <br><br>
-    <input type="number" name="num2" class="num2"> <br><br>
-    <button class="boton" type="submit">Enviar</button>
-
+    <form action="{{ url('admin/'.Auth::user()->id.'send/') }}" method="post">
+        <input type="text" name="num1" class="num1"> <br><br>
+        <input type="text" name="num2" class="num2"> <br><br>
+        <button class="boton" type="submit">Enviar</button>
+    </form>
 </body>
 </html>

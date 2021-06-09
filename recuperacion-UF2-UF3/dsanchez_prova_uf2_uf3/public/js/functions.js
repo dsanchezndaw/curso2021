@@ -1,35 +1,36 @@
-/* window.onload = function() { init(); };
-function init(){
-
-    var script_tag = document.getElementById('functions')
-    var user_id = script_tag.getAttribute("user-id");
-    var num1 = $(".num1").val(Math.floor((Math.random() * 100) + 1));
-    var num2 = $(".num2").val(Math.floor((Math.random() * 100) + 1));   
-
-    $(".boton").click(function(e){
-        e.preventDefault();
-        num1 = $(".num1").val(Math.floor((Math.random() * 100) + 1));
-        num2 = $(".num2").val(Math.floor((Math.random() * 100) + 1)); 
-        
-        console.log(num1.val());
-        console.log(num2.val());
-
-    })
-
-    Echo.private('user.'+user_id).listen('NewMessageNotification', (e) => {
-        alert(e.message.message);
-    });
-} */
-
 window.onload = function() { init(); };
 function init(){
 
     var script_tag = document.getElementById('functions')
     var user_id = script_tag.getAttribute("user-id");
+    var num1 = $(".num1").val(Math.floor(Math.random() * 100));
+    var num2 = $(".num2").val(Math.floor(Math.random() * 10));   
 
-    Echo.private('user.'+ user_id).listen('NewMessageNotification', (e) => {
-        console.log("me cago en mi vida");
-        alert(e.message.message);
+    $(".boton").click(function(event){
+        event.preventDefault();
+        var _token = $('meta[name=csrf-token]').attr('content');
+        var to = 'public';
+        var from = user_id;
+        num1 = $(".num1").val();
+        num2 = $(".num2").val(); 
+        $.ajax({
+            url: "https://dawjavi.insjoaquimmir.cat/dsanchez/recuperacion-UF2-UF3/dsanchez_prova_uf2_uf3/public/admin/"+ user_id+"/send",
+            type:'POST',
+            data: {_token:_token, message:num1, to:to, from:from},
+            success: function(data) {
+                console.log("Mensaje enviado");
+                num1 = $(".num1").val(Math.floor(Math.random() * 100));
+                num2 = $(".num2").val(Math.floor(Math.random() * 10));  
+            }
+        })
+    });
+
+    var script_tag = document.getElementById('functions')
+    var user_id = script_tag.getAttribute("user-id");
+    var $noti = $(".notificacion");
+
+    Echo.private('public').listen('NewMessageNotification', (e) => {
+        $noti.prepend("<h1>"+e.message.message+"</h1><br>")
         
     });
 } 

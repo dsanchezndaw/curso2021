@@ -17,3 +17,7 @@ Broadcast::channel('user.{toUserId}', function ($user, $toUserId) {
     return $user->id == $toUserId;
 
 });
+
+Broadcast::channel('public', function ($user) {
+    return Auth::check();
+});
