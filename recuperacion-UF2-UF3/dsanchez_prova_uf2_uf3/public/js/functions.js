@@ -27,7 +27,9 @@ function init(){
     var script_tag = document.getElementById('functions')
     var user_id = script_tag.getAttribute("user-id");
 
-    Echo.private('user.'+user_id).listen('NewMessageNotification', (e) => {
+    Echo.private('user.'+ user_id).listen('NewMessageNotification', (e) => {
+        console.log("me cago en mi vida");
         alert(e.message.message);
+        
     });
-}
+} 

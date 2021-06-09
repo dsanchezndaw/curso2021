@@ -17,7 +17,7 @@
                     @if(Auth::user()->img != null)
                         <img style="height:500px;width:500px" src="{{Auth::user()->img}}"> <br>
                     @endif
-
+                    @include('editMessage')
                     <a href="{{ 'edicio/'.Auth::user()->id}}">Edició user </a> <br>
                     <a href="{{ 'admin/'.Auth::user()->id}}">Admin </a> <br>
 

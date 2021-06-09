@@ -49,7 +49,7 @@ class UserController extends Controller
         
         $message = new Message;
         $message->setAttribute('from', Auth::user()->id);
-        $message->setAttribute('to', Auth::user()->id);
+        $message->setAttribute('to', 16);
         $message->setAttribute('message', 'Demo message from user 1 to user 2');
         $message->save();
          
@@ -123,18 +123,17 @@ class UserController extends Controller
         ]);
 
         User::findOrFail($id)->update([
-        'name' => $request->name,
-        'lastname' => $request->lastname,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'img' => 'user-img/'.time().'.'.$request->file->extension()
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'img' => 'user-img/'.time().'.'.$request->file->extension()
         ]);
 
         $imageName = time().'.'.$request->file->extension();
         $request->file->move(public_path('user-img'), $imageName);
         
-        echo "Usuario editado";
-        return redirect()->to('dashboard')->with('status', 'Profile updated!');
+        return redirect()->to('dashboard')->with('success', 'Profile updated!');
     }
 
     /**
