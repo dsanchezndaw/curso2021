@@ -46,12 +46,12 @@ function init(){
                 $("#num2").remove();
                 $("#suma").val("");
                 num = 1;
-                if (sumacion == suma) {
+                /*if (sumacion == suma) {
                     alert("El usuario "+username+" sabe sumar");
 
                 }else{
                     alert("El usuario "+username+" no sabe sumar");
-                }
+                }*/
 
                 
             }
@@ -65,10 +65,10 @@ function init(){
         var sumacion = parseInt(numero1) + parseInt(numero2);
         console.log(sumacion); 
         if (sumacion == suma) {
-            alert("El usuario "+user_name+" sabe sumar");
+            alert("El usuario "+e.message.from+" sabe sumar");
 
         }else{
-            alert("El usuario "+user_name+" no sabe sumar");
+            alert("El usuario "+e.message.from+" no sabe sumar");
         }*/
 
         //var user = Cookies.get('user')

@@ -118,9 +118,9 @@ class UserController extends Controller
             'name' => 'required|string',
             'lastname' => 'required|string',
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string',
+            'password' => 'required|string|min:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
             'password_confirm' => 'same:password',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           
         ]);
 
