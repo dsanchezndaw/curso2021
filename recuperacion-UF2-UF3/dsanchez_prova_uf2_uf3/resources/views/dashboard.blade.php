@@ -10,7 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     @include('editMessage')
+
                     <form action="{{ url('admin/'.Auth::user()->id) }}" method="post">
+                        <input type="hidden" name="user" id="username" value="{{Auth::user()->name}}">
                         <p>Suma los dos primeros números: </p><input type="text" name="text" id="suma">
                         <button class="enviar" type="submit">Enviar</button>
                     </form><br>

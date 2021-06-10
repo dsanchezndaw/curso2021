@@ -9,7 +9,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script id="functions" user-id="{{ $user_id }}" user-name="{{ $user_name }}" src="{{ asset('js/functions.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>

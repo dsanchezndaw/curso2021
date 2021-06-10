@@ -24,7 +24,7 @@ function init(){
             }
         })
     });
-
+    
     $(".enviar").click(function(event){
         event.preventDefault();
         
@@ -32,26 +32,25 @@ function init(){
         var numero2 = $("#num2").text();
         var suma = $("#suma").val();
         var sumacion = parseInt(numero1) + parseInt(numero2);
-
         var _token = $('meta[name=csrf-token]').attr('content');
         var to = 'private';
         var from = user_id;
-
+        //Cookies.set('user', user_name)
+        var username = $("#username").val();
         $.ajax({
             url: "https://dawjavi.insjoaquimmir.cat/dsanchez/recuperacion-UF2-UF3/dsanchez_prova_uf2_uf3/public/admin/"+ user_id+"/send",
             type:'POST',
-            data: {_token:_token, message:sumacion, to:to, from:from},
+            data: {_token:_token, message:sumacion, to:to, from:from, username:username},
             success: function(data) {
-                console.log(sumacion);
-                //$("#num1").remove();
-                //$("#num2").remove();
-                //$("#suma").val("");
+                $("#num1").remove();
+                $("#num2").remove();
+                $("#suma").val("");
                 num = 1;
                 if (sumacion == suma) {
-                    alert("El usuario "+user_name+" sabe sumar");
+                    alert("El usuario "+username+" sabe sumar");
 
                 }else{
-                    alert("El usuario "+user_name+" no sabe sumar");
+                    alert("El usuario "+username+" no sabe sumar");
                 }
 
                 
@@ -59,20 +58,23 @@ function init(){
         })
 
     });
-
     Echo.private('private').listen('NewMessageNotification', (e) => {
         /* var numero1 = $("#num1").text();
         var numero2 = $("#num2").text();
         var suma = $("#suma").val();
         var sumacion = parseInt(numero1) + parseInt(numero2);
-        console.log(sumacion); */
-        
+        console.log(sumacion); 
         if (sumacion == suma) {
             alert("El usuario "+user_name+" sabe sumar");
 
         }else{
             alert("El usuario "+user_name+" no sabe sumar");
-        }
+        }*/
+
+        //var user = Cookies.get('user')
+        alert("El usuario "+e.message.username+" sabe sumar");
+       
+        
     });
 
 
