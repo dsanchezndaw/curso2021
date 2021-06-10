@@ -9,11 +9,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <p>Suma los dos numeros: </p><input type="text" name="text" id="suma">
-                    <button class="enviar" type="submit">Enviar</button>
+                    @include('editMessage')
+                    <form action="{{ url('admin/'.Auth::user()->id) }}" method="post">
+                        <p>Suma los dos numeros: </p><input type="text" name="text" id="suma">
+                        <button class="enviar" type="submit">Enviar</button>
+                    </form>
 
-                    <header class="notificacion">
-                        
+                    <div name="id" id="id_user">
+
+                    </div>
+
+                    <header>
+                        <div class="notificacion"></div>
                     </header>
                     
                     <p>Bienvenido {{Auth::user()->name }} {{Auth::user()->lastname}}</p> <br>
@@ -21,7 +28,7 @@
                     @if(Auth::user()->img != null)
                         <img style="height:500px;width:500px" src="{{Auth::user()->img}}"> <br>
                     @endif
-                    @include('editMessage')
+                    
                     <a href="{{ 'edicio/'.Auth::user()->id}}">Edició user </a> <br>
                     <a href="{{ 'admin/'.Auth::user()->id}}">Admin </a> <br>
 

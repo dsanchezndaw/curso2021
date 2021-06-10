@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Message;
 use App\Events\NewMessageNotification;
+
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -30,7 +31,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $data["user_id"] = Auth::user()->id;
-        
+        $data["user_name"] = Auth::user()->name;
         if($user->is_admin == 1){
             return view('admin', $data);
 
@@ -45,7 +46,7 @@ class UserController extends Controller
     {
         // ...
         // message is being sent
-        //$data["user_id"] = Auth::user()->id;
+        
         
         $message = new Message;
         $message->setAttribute('from', Auth::user()->id);
@@ -55,7 +56,8 @@ class UserController extends Controller
          
         // want to broadcast NewMessageNotification event
         event(new NewMessageNotification($message));
-        return "sms enviado";
+
+        return "enviado";
     }
 
     /**
@@ -133,7 +135,7 @@ class UserController extends Controller
         $imageName = time().'.'.$request->file->extension();
         $request->file->move(public_path('user-img'), $imageName);
         
-        return redirect()->to('dashboard')->with('success', 'Profile updated!');
+        return redirect()->to('dashboard')->with('success', 'Perfil actualizado!!');
     }
 
     /**
