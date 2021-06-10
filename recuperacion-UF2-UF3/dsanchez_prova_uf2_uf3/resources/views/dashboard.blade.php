@@ -11,19 +11,15 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     @include('editMessage')
                     <form action="{{ url('admin/'.Auth::user()->id) }}" method="post">
-                        <p>Suma los dos numeros: </p><input type="text" name="text" id="suma">
+                        <p>Suma los dos primeros números: </p><input type="text" name="text" id="suma">
                         <button class="enviar" type="submit">Enviar</button>
-                    </form>
-
-                    <div name="id" id="id_user">
-
-                    </div>
+                    </form><br>
 
                     <header>
                         <div class="notificacion"></div>
                     </header>
                     
-                    <p>Bienvenido {{Auth::user()->name }} {{Auth::user()->lastname}}</p> <br>
+                    <br><p>Bienvenido {{Auth::user()->name }} {{Auth::user()->lastname}}</p> <br>
                     
                     @if(Auth::user()->img != null)
                         <img style="height:500px;width:500px" src="{{Auth::user()->img}}"> <br>

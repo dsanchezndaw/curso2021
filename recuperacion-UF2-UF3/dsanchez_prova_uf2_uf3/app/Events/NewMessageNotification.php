@@ -34,6 +34,8 @@ class NewMessageNotification implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PrivateChannel($this->message->to);
+        return new PrivateChannel($this->message->to) ;
+        
     }
+
 }

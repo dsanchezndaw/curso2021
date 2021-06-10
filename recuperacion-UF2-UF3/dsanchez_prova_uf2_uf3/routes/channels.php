@@ -17,7 +17,10 @@ Broadcast::channel('public', function ($user) {
     return Auth::check();
 });
 
+Broadcast::channel('private', function ($user) {
+    return $user->is_admin == 1;
+});
+
 Broadcast::channel('user.{toUserId}', function ($user, $toUserId) {
     return $user->id == $toUserId;
-
 });
