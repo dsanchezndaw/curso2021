@@ -40,7 +40,7 @@ function init(){
         $.ajax({
             url: "https://dawjavi.insjoaquimmir.cat/dsanchez/recuperacion-UF2-UF3/dsanchez_prova_uf2_uf3/public/admin/"+ user_id+"/send",
             type:'POST',
-            data: {_token:_token, message:sumacion, to:to, from:from, username:username},
+            data: {_token:_token, message:sumacion, to:to, from:from/* , username:username, num1:numero1, num2:numero2 */},
             success: function(data) {
                 $("#num1").remove();
                 $("#num2").remove();
@@ -72,7 +72,9 @@ function init(){
         }*/
 
         //var user = Cookies.get('user')
-        alert("El usuario "+e.message.username+" sabe sumar");
+        alert("El usuario "+e.message.from+" sabe sumar");
+        /*console.log(e.message.message)
+        console.log(e.message.num1)*/
        
         
     });

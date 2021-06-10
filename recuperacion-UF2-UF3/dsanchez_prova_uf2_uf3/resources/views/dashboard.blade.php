@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     @include('editMessage')
-
+                    <p>Bienvenido {{Auth::user()->name }} {{Auth::user()->lastname}}</p> <br>
                     <form action="{{ url('admin/'.Auth::user()->id) }}" method="post">
                         <input type="hidden" name="user" id="username" value="{{Auth::user()->name}}">
                         <p>Suma los dos primeros números: </p><input type="text" name="text" id="suma">
@@ -21,15 +21,19 @@
                         <div class="notificacion"></div>
                     </header>
                     
-                    <br><p>Bienvenido {{Auth::user()->name }} {{Auth::user()->lastname}}</p> <br>
-                    
                     @if(Auth::user()->img != null)
                         <img style="height:500px;width:500px" src="{{Auth::user()->img}}"> <br>
                     @endif
                     
-                    <a href="{{ 'edicio/'.Auth::user()->id}}">Edició user </a> <br>
-                    <a href="{{ 'admin/'.Auth::user()->id}}">Admin </a> <br>
+                    <br><a href="{{ 'edicio/'.Auth::user()->id}}">Edició user </a> <br>
 
+                    @if(Auth::user()->is_admin == 1)
+                        <a href="{{ 'admin/'.Auth::user()->id}}">Admin </a> <br>
+
+                    @else
+                        <p>No tienes rol de administrador, lo siento</p>
+                    
+                    @endif
                 </div>
             </div>
         </div>

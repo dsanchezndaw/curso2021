@@ -117,10 +117,10 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string',
             'lastname' => 'required|string',
-            'email' => 'nullable|string|email|unique:users,email',
-            'password' => 'nullable|string',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|string',
             'password_confirm' => 'same:password',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           
         ]);
 
